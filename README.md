@@ -6,3 +6,8 @@
   <li><a href="https://ellie-app.com/3DGY7DrMpDMa1/0">Commented code</a></li>
   <li><a href="https://ellie-app.com/3DGXDjhxfqGa1/0">Uncommented code</a></li>
 </ul>
+
+<h2>Free resources</h2>
+<ul>
+  <li><a href="https://guide.elm-lang.org/interop/javascript.html">Elm Official Guide - JavaScript Interop</a></li>
+</ul>
