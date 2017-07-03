@@ -1,0 +1,37 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    html {
+      background: #fff;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <script src="elm.js"></script>
+  <script>
+    // Since we named our Elm module "Main", we access it from
+    // the Elm variable as Elm.Main, then we call its fullscreen
+    // method to display the view function's returned HTML.
+    var app = Elm.Main.fullscreen();
+    
+    // We are subscribing a callback function to the 
+    // processPicture port. This just means that we're listening
+    // for when processPicture sends the event object to us.
+    // The event object will be the first argument of the callback
+    // function. We named it e since it's an event object that
+    // gets sent.
+    app.ports.processPicture.subscribe(function(e) {
+      // We create a FileReader, then read the image file,
+      // then once it's done loading, we send the image URL back to
+      // Elm through the getPicture port.
+      var reader = new FileReader();
+      reader.readAsDataURL(e.srcElement.files[0]);
+      reader.onloadend = function() {
+        app.ports.getPicture.send(reader.result);
+      };
+    });
+  </script>
+</body>
+</html>
